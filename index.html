@@ -6,14 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nguyen Van Viet - Portfolio</title>
   <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
-  <script src="assets/scripts/clock.js"></script>
+  <!-- <script src="assets/scripts/clock.js"></script> -->
+  <script src="assets/scripts/main.js"></script>
 </head>
 
-<body>
+<body class="scroll-smooth">
   <!-- Container -->
   <div class="container">
     <!-- Top section -->
-    <section id="resume-header" class="h-screen">
+    <div id="resume-header" class="h-screen">
       <div id="datetime-wrapper">
         <p id="date"></p>
         <p id="clock" onclick="toggleDisplayType()" title="Change display type"></p>
@@ -33,179 +34,187 @@
               title="Blog">Blog</a></li>
         </ul><!-- End Social link -->
       </div> <!-- End Wrapper -->
-    </section><!-- End Top section -->
+    </div><!-- End Top section -->
 
-    <!-- About me -->
-    <section id="about" class="h-120">
-      <h2 class="text-3xl font-light text-center text-teal-80">About me</h2>
-      <hr>
-      <!-- Row -->
-      <div class="row p-10">
-        <div class="col-5">
-          <!-- Image wrapper -->
-          <div>
-            <img src="#" alt="me">
-          </div><!-- Image wrapper -->
-        </div>
-
-        <div class="col-7">
-          <!-- About content -->
-          <div>
-            <h3 class="font-medium">Summary</h3>
-            <p class="text-gray-90 text-lg">I am Nguyen Van Viet, an information technology student at Hue University
-              of Sciences.</p>
-            <p class="text-gray-90 text-lg">I'm very excited to learn new technologies and always find new ways to
-              optimize workspace both in the workplace and the OS I'm using to get things done as fast as possible. I
-              look forward to becoming a frontend developer and the future goal is a fullstack developer.</p>
-            <a class="text-teal-80 hover:underline" href="#">Offline CV</a>
-          </div> <!-- End About content -->
-        </div>
-      </div><!-- End Row -->
-    </section><!-- End About me -->
-
-    <!-- Skills -->
-    <section id="skills">
-      <h2 class="text-3xl font-light text-center text-teal-80">Skills</h2>
-      <hr>
-
-      <!-- Wrapper -->
-      <div class="flex flex-col justify-center p-10">
+    <div id="tab-container" class="h-screen">
+      <nav class="flex justify-center mb-8">
+        <ul class="flex flex-row">
+          <li class="p-5"><a onclick="jumpTo(this, 'about')" class="hover:underline hover:pointer text-teal-80">About me</a></li>
+          <li class="p-5"><a onclick="jumpTo(this, 'skills')" class="hover:underline hover:pointer text-teal-80">Skills</a></li>
+          <li class="p-5"><a onclick="jumpTo(this, 'projects')" class="hover:underline hover:pointer text-teal-80">Projects</a></li>
+          <li class="p-5"><a onclick="jumpTo(this, 'timeline')" class="hover:underline hover:pointer text-teal-80">Timeline</a></li>
+        </ul>
+      </nav>
+      <!-- About me -->
+      <section id="about" class="h-120 block">
+        <h2 class="text-3xl font-light text-teal-80 px-10">About me</h2>
         <!-- Row -->
-        <div class="row">
-          <div class="col-4">
-            <h3 class="font-normal text-base my-2 text-gray-100">PROGRAMMING LANGUAGES</h3>
-            <ul class="list-circle px-5 pt-2 text-gray-90">
-              <li>Javascript</li>
-              <li>Java</li>
-              <li>HTML, CSS/SCSS</li>
-              <li>Bash</li>
-            </ul>
+        <div class="row p-10">
+          <div class="col-5">
+            <!-- Image wrapper -->
+            <div>
+              <img src="#" alt="me">
+            </div><!-- Image wrapper -->
           </div>
 
-          <div class="col-4">
-            <h3 class="font-normal text-base my-2 text-gray-100">FRAMEWORKS & PLATFORMS</h3>
-            <ul class="list-circle px-5 pt-2 text-gray-90">
-              <li>ExpressJS</li>
-              <li>ReactJS</li>
-              <li>NodeJS</li>
-              <li>Tailwindcss</li>
-            </ul>
+          <div class="col-7">
+            <!-- About content -->
+            <div>
+              <h3 class="font-medium">Summary</h3>
+              <p class="text-gray-90 text-lg">I am Nguyen Van Viet, an information technology student at Hue
+                University
+                of Sciences.</p>
+              <p class="text-gray-90 text-lg">I'm very excited to learn new technologies and always find new ways to
+                optimize workspace both in the workplace and the OS I'm using to get things done as fast as
+                possible.
+                I
+                look forward to becoming a frontend developer and the future goal is a fullstack developer.</p>
+              <a class="text-teal-80 hover:underline" href="#">Offline CV</a>
+            </div> <!-- End About content -->
           </div>
-
-          <div class="col-4">
-            <h3 class="font-normal text-base my-2 text-gray-100">OTHER</h3>
-            <ul class="list-circle px-5 pt-2 text-gray-90">
-              <li>Knowledge about Linux.</li>
-              <li>Good time management.</li>
-              <li>Good at English reading and listening.</li>
-            </ul>
-          </div>
-        </div> <!-- End Row -->
-
-        <!-- Row -->
-        <div class="row">
-          <!-- Col 4 -->
-          <div class="col-4">
-            <h3 class="font-normal text-base my-2 text-gray-100">IDE & TOOLS</h3>
-            <ul class="list-circle px-5 pt-2 text-gray-90">
-              <li>Visual Studio Code</li>
-              <li>Vim</li>
-              <li>Sublime Text</li>
-              <li>Git</li>
-            </ul>
-          </div> <!-- End Col 4 -->
-
-          <!-- Col 5 -->
-          <div class="col-4">
-            <h3 class="font-normal text-base my-2 text-gray-100">DATABASE</h3>
-            <ul class="list-circle px-5 pt-2 text-gray-90">
-              <li>MongoDB</li>
-              <li>MySQL</li>
-              <li>SQL Server</li>
-            </ul>
-          </div> <!-- End Col 5 -->
         </div><!-- End Row -->
-      </div><!-- End Wrapper -->
-    </section><!-- End Skills -->
+      </section><!-- End About me -->
 
-    <!-- Projects -->
-    <section id="projects">
-      <h2 class="text-3xl font-light text-center text-teal-80">Projects</h2>
-      <hr>
-      <!-- Projects wrapper -->
-      <div class="p-10">
-        <!-- Project -->
-        <div class="flex flex-row p-5">
-          <h3 class="min-w-12 font-normal text-2xl self-center">Android MovieApp</h3>
-          <!-- Project detail -->
-          <div class="px-4 text-gray-90">
-            <ul>
-              <li><b>Description: </b>The project includes android application and RESTful API server writing in
-                ExpressJS. It has features as watch film online, comment and saves the favorite film to your login
-                account.</li>
-              <li><b>Team size: </b>2</li>
-              <li><b>Responsibilities: </b>Analyze & design database based on requirements with collaborator.
-                Responsible for designing the UI and coding features of the application, building server to retrieve
-                data and authenticate users.</li>
-              <li><b>Accomplishments: </b>Learned new android platform and libraries.</li>
-              <li><b>Technoligies: </b>AndroidSDK, ExpressJS, MongoDB.</li>
-            </ul>
-          </div>
-        </div> <!-- End Project -->
+      <!-- Skills -->
+      <section id="skills" class="hidden">
+        <h2 class="text-3xl font-light text-teal-80 px-10">Skills</h2>
 
-        <!-- Project -->
-        <div class="flex flex-row p-5">
-          <h3 class="min-w-12 font-normal text-2xl self-center">ChatApp</h3>
-          <!-- Project detail -->
-          <div class="px-4 text-gray-90">
-            <ul>
-              <li><b>Description: </b>Send message and file between 2 PC through UDP protocol.</li>
-              <li><b>Team size: </b>1</li>
-              <li><b>Responsibilities: </b>Get clear requirements and develop the app.</li>
-              <li><b>Accomplishments: </b>Learned how UDP, TCP protocol work.</li>
-              <li><b>Technoligies: </b>Java swing</li>
-            </ul>
-          </div>
-        </div> <!-- End Project -->
+        <!-- Wrapper -->
+        <div class="flex flex-col justify-center p-10">
+          <!-- Row -->
+          <div class="row">
+            <div class="col-4">
+              <h3 class="font-normal text-base my-2 text-gray-100">PROGRAMMING LANGUAGES</h3>
+              <ul class="list-circle px-5 pt-2 text-gray-90">
+                <li>Javascript</li>
+                <li>Java</li>
+                <li>HTML, CSS/SCSS</li>
+                <li>Bash</li>
+              </ul>
+            </div>
 
-        <!-- Project -->
-        <div class="flex flex-row p-5">
-          <h3 class="min-w-12 font-normal text-2xl self-center">Dymaxion</h3>
-          <!-- Project detail -->
-          <div class="px-4 text-gray-90">
-            <ul>
-              <li><b>Description: </b>Mock project about medical website.</li>
-              <li><b>Team size: </b>4</li>
-              <li><b>Responsibilities: </b>Responsible for divide HTML pages into components, SSR using ExpressJS.
-                Change the priority & add new page sections of the dashboard. Write bash tools to perform mongo
-                database checks before starting the server. Configure nginx on the VPS to get things work.</li>
-              <li><b>Accomplishments: </b>Get a better understanding of how a web server works. Learned how to serve a
-                web app from scratch. Deeper Javascript understanding.</li>
-              <li><b>Technoligies: </b>NodeJS, ExpressJS, MongoDB, Bash script</li>
-            </ul>
-          </div>
-        </div> <!-- End Project -->
-      </div> <!-- End Projects wrapper -->
-    </section><!-- End Projects -->
+            <div class="col-4">
+              <h3 class="font-normal text-base my-2 text-gray-100">FRAMEWORKS & PLATFORMS</h3>
+              <ul class="list-circle px-5 pt-2 text-gray-90">
+                <li>ExpressJS</li>
+                <li>ReactJS</li>
+                <li>NodeJS</li>
+                <li>Tailwindcss</li>
+              </ul>
+            </div>
 
-    <!-- Timeline -->
-    <section id="timeline">
-      <!-- Wrapper -->
-      <div>
-        <h2 class="text-3xl font-light text-center text-teal-80">Timeline</h2>
-        <hr>
-        <!-- Timeline wrapper -->
-        <div class="p-10">
-          <!-- Timestamp -->
-          <ul class="text-gray-90">
-            <li><strong class="px-4">2016 - now:</strong>Studying at Hue University of Sciences</li>
-          </ul> <!-- End Timestamp -->
-        </div> <!-- End Timeline wrapper -->
-      </div> <!-- End Wrapper -->
-    </section><!-- End Timeline -->
+            <div class="col-4">
+              <h3 class="font-normal text-base my-2 text-gray-100">OTHER</h3>
+              <ul class="list-circle px-5 pt-2 text-gray-90">
+                <li>Knowledge about Linux.</li>
+                <li>Good time management.</li>
+                <li>Good at English reading and listening.</li>
+              </ul>
+            </div>
+          </div> <!-- End Row -->
+
+          <!-- Row -->
+          <div class="row">
+            <!-- Col 4 -->
+            <div class="col-4">
+              <h3 class="font-normal text-base my-2 text-gray-100">IDE & TOOLS</h3>
+              <ul class="list-circle px-5 pt-2 text-gray-90">
+                <li>Visual Studio Code</li>
+                <li>Vim</li>
+                <li>Sublime Text</li>
+                <li>Git</li>
+              </ul>
+            </div> <!-- End Col 4 -->
+
+            <!-- Col 5 -->
+            <div class="col-4">
+              <h3 class="font-normal text-base my-2 text-gray-100">DATABASE</h3>
+              <ul class="list-circle px-5 pt-2 text-gray-90">
+                <li>MongoDB</li>
+                <li>MySQL</li>
+                <li>SQL Server</li>
+              </ul>
+            </div> <!-- End Col 5 -->
+          </div><!-- End Row -->
+        </div><!-- End Wrapper -->
+      </section><!-- End Skills -->
+
+      <!-- Projects -->
+      <section id="projects" class="hidden">
+        <h2 class="text-3xl font-light text-teal-80 px-10">Projects</h2>
+        <!-- Projects wrapper -->
+        <div class="p-4">
+          <!-- Project -->
+          <div class="flex flex-row p-5">
+            <h3 class="min-w-28 font-normal text-2xl self-center">Android MovieApp</h3>
+            <!-- Project detail -->
+            <div class="px-4 text-gray-90">
+              <ul>
+                <li><b>Description: </b>The project includes android application and RESTful API server writing in
+                  ExpressJS. It has features as watch film online, comment and saves the favorite film to your login
+                  account.</li>
+                <li><b>Team size: </b>2</li>
+                <li><b>Responsibilities: </b>Analyze & design database based on requirements with collaborator.
+                  Responsible for designing the UI and coding features of the application, building server to retrieve
+                  data and authenticate users.</li>
+                <li><b>Accomplishments: </b>Learned new android platform and libraries.</li>
+                <li><b>Technoligies: </b>AndroidSDK, ExpressJS, MongoDB.</li>
+              </ul>
+            </div>
+          </div> <!-- End Project -->
+
+          <!-- Project -->
+          <div class="flex flex-row p-5">
+            <h3 class="min-w-28 font-normal text-2xl self-center">ChatApp</h3>
+            <!-- Project detail -->
+            <div class="px-4 text-gray-90">
+              <ul>
+                <li><b>Description: </b>Send message and file between 2 PC through UDP protocol.</li>
+                <li><b>Team size: </b>1</li>
+                <li><b>Responsibilities: </b>Get clear requirements and develop the app.</li>
+                <li><b>Accomplishments: </b>Learned how UDP, TCP protocol work.</li>
+                <li><b>Technoligies: </b>Java swing</li>
+              </ul>
+            </div>
+          </div> <!-- End Project -->
+
+          <!-- Project -->
+          <div class="flex flex-row p-5">
+            <h3 class="min-w-28 font-normal text-2xl self-center">Dymaxion</h3>
+            <!-- Project detail -->
+            <div class="px-4 text-gray-90">
+              <ul>
+                <li><b>Description: </b>Mock project about medical website.</li>
+                <li><b>Team size: </b>4</li>
+                <li><b>Responsibilities: </b>Responsible for divide HTML pages into components, SSR using ExpressJS.
+                  Change the priority & add new page sections of the dashboard. Write bash tools to perform mongo
+                  database checks before starting the server. Configure nginx on the VPS to get things work.</li>
+                <li><b>Accomplishments: </b>Get a better understanding of how a web server works. Learned how to serve a
+                  web app from scratch. Deeper Javascript understanding.</li>
+                <li><b>Technoligies: </b>NodeJS, ExpressJS, MongoDB, Bash script</li>
+              </ul>
+            </div>
+          </div> <!-- End Project -->
+        </div> <!-- End Projects wrapper -->
+      </section><!-- End Projects -->
+
+      <!-- Timeline -->
+      <section id="timeline" class="hidden">
+        <!-- Wrapper -->
+        <div>
+          <h2 class="text-3xl font-light text-teal-80 px-10">Timeline</h2>
+          <!-- Timeline wrapper -->
+          <div class="p-10">
+            <!-- Timestamp -->
+            <ul class="text-gray-90">
+              <li><strong class="px-4">2016 - now:</strong>Studying at Hue University of Sciences</li>
+            </ul> <!-- End Timestamp -->
+          </div> <!-- End Timeline wrapper -->
+        </div> <!-- End Wrapper -->
+      </section><!-- End Timeline -->
+
+    </div>
   </div> <!-- End Container -->
-
-  <script></script>
 </body>
 
 </html>
