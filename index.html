@@ -10,12 +10,12 @@
   <script src="assets/scripts/main.js"></script>
 </head>
 
-<body class="scroll-smooth">
+<body>
   <!-- Container -->
   <div class="container">
     <!-- Top section -->
     <div id="resume-header" class="h-screen">
-      <div id="datetime-wrapper">
+      <div id="datetime-wrapper" class="absolute">
         <p id="date"></p>
         <p id="clock" onclick="toggleDisplayType()" title="Change display type"></p>
       </div>
@@ -37,7 +37,7 @@
     </div><!-- End Top section -->
 
     <div id="tab-container" class="h-screen">
-      <nav class="flex justify-center mb-8">
+      <nav id="navbar" class="flex justify-center mb-8 animate show">
         <ul class="flex flex-row">
           <li class="p-5"><a onclick="jumpTo(this, 'about')" class="hover:underline hover:pointer text-teal-80">About me</a></li>
           <li class="p-5"><a onclick="jumpTo(this, 'skills')" class="hover:underline hover:pointer text-teal-80">Skills</a></li>

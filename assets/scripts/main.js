@@ -1,28 +1,23 @@
-var lastPosY = 0
+// FIXME: reduce scroll noise 
+// FIXME: fix lag scroll on chrome
+// TODO: Change projects layout
+// TODO: Responsive
 
-document.addEventListener('scroll', function () {
-  scrollSec()
-})
+document.addEventListener('wheel', detectScrollDirection)
 
-function scrollSec() {
-  let curPosY = window.pageYOffset || document.documentElement.scrollTop
-
-  console.log('curr: ' + Math.pow(curPosY, 4));
-  console.log('last: ' + Math.pow(lastPosY, 4));
-
-  // Scroll down behavior
-  if (Math.pow(curPosY, 4) > Math.pow(lastPosY, 4)) {
-    document.getElementById('tab-container').scrollIntoView()
+function detectScrollDirection(event) {
+  var delta;
+  if (event.wheelDelta) {
+    delta = event.wheelDelta;
+  } else {
+    delta = -1 * event.deltaY;
   }
-  else if(Math.pow(curPosY, 4) < Math.pow(lastPosY, 4)) {
-    document.getElementById('resume-header').scrollIntoView()
-  } else {}
-
-  lastPosY = curPosY
+  if (delta < 0) {
+    document.getElementById('tab-container').scrollIntoView({behavior: "smooth"})
+  } else if (delta > 0) {
+    document.getElementById('resume-header').scrollIntoView({behavior: "smooth"})
+  }
 }
-// if (document.documentElement.scrollTop > window.innerHeight - 15) {
-
-// }
 
 function jumpTo(curentEl, targetSectionId) {
   // curentEl.style.textDecoration = 'underline'
@@ -35,11 +30,19 @@ function jumpTo(curentEl, targetSectionId) {
 }
 
 function throttle(fn, wait) {
-  var time = Date.now();
-  return function() {
+  var time = Date.now()
+  console.log({time});
+  
+  return function () {
     if ((time + wait - Date.now()) < 0) {
       fn();
       time = Date.now();
     }
   }
 }
+
+// defer || async
+// const navbar = document.getElementById('navbar')
+// navbar.addEventListener('click', function(e) {
+//   e.target
+// })
