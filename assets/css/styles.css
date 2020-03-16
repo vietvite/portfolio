@@ -95,6 +95,9 @@ body {
 .max-w-15 {
   max-width: 15rem;
 }
+.w-full {
+  max-width: 100%;
+}
 
 /* Display */
 .flex {
@@ -199,32 +202,25 @@ body {
 }
 
 /* Column design */
-* {
-  box-sizing: border-box;
+
+
+.grid {
+  display: grid;
+  grid-auto-rows: minmax(100px, auto);
 }
 
-[class*="col-"] {
-  float: left;
-  padding: 15px;
+.grid-col-3 {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.grid-col-2 {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.grid-1-5 {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr) minmax(240px, 5fr));
 }
 
-.col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
-.col-3 {width: 25%;}
-.col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
-
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
+.grid-gap-8 {
+  gap: 2rem;
 }
 
 /* List style */
@@ -232,10 +228,36 @@ body {
   list-style: circle;
 }
 
-.animate {
+/* Animation */
+.anim-opacity-up {
   opacity: 0;
+  animation-name: opacity;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
-.show {
-  opacity: 1;
-  animation-duration: 3s;
+.anim-opacity-up-1\/2 {
+  opacity: 0;
+  animation-name: opacity;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes opacity {
+  from { opacity: 0; }
+  to {opacity: 1; }
+}
+
+.anim-translate-up {
+  transform: translateY(10px);
+  animation-name: translateUp;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes translateUp {
+  from { transform: translateY(10px); }
+  to { transform: translateY(0px); }
+}
+
+.vertical-align-top {
+  vertical-align: top;
 }
